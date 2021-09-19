@@ -1,6 +1,6 @@
 # bahasa-malaysia-nlp-demos
 
-Demos and code samples for BM NLP models from [malay-huggingface](https://huggingface.co/malay-huggingface), also hosted on github at [github repo](https://github.com/malaysia-ai/malay-huggingface).
+Demos and code samples for BM NLP models from [malay-huggingface](https://huggingface.co/malay-huggingface), also hosted [on github](https://github.com/malaysia-ai/malay-huggingface).
 
 ##  BERT models
 

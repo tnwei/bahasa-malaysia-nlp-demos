@@ -1,10 +1,10 @@
-"""
-"""
 import gradio as gr
 from gradio.mix import Parallel
 import argparse
-from transformers import BertTokenizer, BertForMaskedLM, pipeline
-from typing import List, Dict
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--port", type=int, default=7860)
+args = parser.parse_args()
 
 
 iface_tiny = gr.Interface.load(
@@ -34,5 +34,8 @@ combo_iface = Parallel(
         ["Permohonan Najib, anak untuk dengar isu perlembagaan [MASK]."],
         ["Cuaca terlalu panas untuk bermain [MASK] di padang bersama kawan-kawan."],
     ],
+    # Serving on Heroku
+    server_port=args.port,
+    server_name="0.0.0.0",
 )
 combo_iface.launch()
