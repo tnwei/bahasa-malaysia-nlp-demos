@@ -1,5 +1,9 @@
 # bert-X-bahasa-cased 
 
+<!-- 
+Prerender until https://github.com/gradio-app/gradio/pull/277 is merged. Use `markdown2 -x fenced-code-blocks bert-readme.md > bert-readme-rendered.html`
+-->
+
 Demo for the `tiny`, `base` and `large` variant of BERT models trained to understand Bahasa Malaysia. Type a sentence in BM, and ask BERT to guess a word masked with '[MASK]'. Inputs are case sensitive. 
 
 Models are made available by [Malaysia AI](https://github.com/malaysia-ai/) on HuggingFace:
@@ -7,6 +11,8 @@ Models are made available by [Malaysia AI](https://github.com/malaysia-ai/) on H
 + [bert-tiny-bahasa-cased](https://huggingface.co/malay-huggingface/bert-tiny-bahasa-cased)
 + [bert-base-bahasa-cased](https://huggingface.co/malay-huggingface/bert-base-bahasa-cased)
 + [bert-large-bahasa-cased](https://huggingface.co/malay-huggingface/bert-large-bahasa-cased)
+
+Code for more BM NLP demos [hosted on github.](https://github.com/tnwei/bahasa-malaysia-nlp-demos)
 
 ## Usage through Gradio
 
