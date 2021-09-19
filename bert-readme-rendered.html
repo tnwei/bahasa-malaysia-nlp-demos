@@ -1,0 +1,98 @@
+<h1>bert-X-bahasa-cased</h1>
+
+<p>Demo for the <code>tiny</code>, <code>base</code> and <code>large</code> variant of BERT models trained to understand Bahasa Malaysia. Type a sentence in BM, and ask BERT to guess a word masked with '[MASK]'. Inputs are case sensitive. </p>
+
+<p>Models are made available by <a href="https://github.com/malaysia-ai/">Malaysia AI</a> on HuggingFace:</p>
+
+<ul>
+<li><a href="https://huggingface.co/malay-huggingface/bert-tiny-bahasa-cased">bert-tiny-bahasa-cased</a></li>
+<li><a href="https://huggingface.co/malay-huggingface/bert-base-bahasa-cased">bert-base-bahasa-cased</a></li>
+<li><a href="https://huggingface.co/malay-huggingface/bert-large-bahasa-cased">bert-large-bahasa-cased</a></li>
+</ul>
+
+<h2>Usage through Gradio</h2>
+
+<p>Gradio supports directly creating an interface for models hosted on HuggingFace. In fact, this is how this application is put together!</p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">gradio</span> <span class="k">as</span> <span class="nn">gr</span>
+
+<span class="n">iface</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="c1"># replace w/ the intended model variant</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;malay-huggingface/bert-base-bahasa-cased&quot;</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;huggingface&quot;</span>
+<span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
+</code></pre></div>
+
+<h2>Usage through Inference API</h2>
+
+<p>Alternatively, these models are also accessible directly through HuggingFace's Inference API, allowing easy integration w/ your own applications. Note that if the API wasn't called recently, HuggingFace will need about half a minute to load the models for a cold start.</p>
+
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Sign up w/ HuggingFace to get a API token</span>
+<span class="c1"># ref: https://api-inference.huggingface.co/docs/python/html/quicktour.html</span>
+<span class="n">API_TOKEN</span> <span class="o">=</span> <span class="o">...</span> 
+
+<span class="c1"># Replace URL string w/ the intended model variant</span>
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api-inference.huggingface.co/models/malay-huggingface/bert-base-bahasa-cased&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_TOKEN</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+<span class="c1"># Text input to model</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Cuaca terlalu panas untuk bermain [MASK] di padang bersama kawan-kawan.&quot;</span>
+
+<span class="c1"># Post API request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">})</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Output format is a List[Dict]:</span>
+<span class="c1"># [</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;sequence&quot;: &quot;Cuaca terlalu panas untuk bermain permainan di padang bersama kawan - kawan.&quot;,</span>
+<span class="c1">#     &quot;score&quot;: 0.24029025435447693,</span>
+<span class="c1">#     &quot;token&quot;: 5699,</span>
+<span class="c1">#     &quot;token_str&quot;: &quot;permainan&quot;</span>
+<span class="c1">#   },</span>
+<span class="c1">#   ...</span>
+<span class="c1"># ]</span>
+</code></pre></div>
+
+<h2>Usage through local inferencing</h2>
+
+<p>If your use case requires local inferencing, usage via HuggingFace is quite straightforward:</p>
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Code adapted from model card at</span>
+<span class="c1"># https://huggingface.co/malay-huggingface/bert-tiny-bahasa-cased</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+
+<span class="c1"># Model-specific and task-specific imports</span>
+<span class="c1"># In this example we are importing the LM model class</span>
+<span class="c1"># for BERT to perform mask filling</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">BertTokenizer</span><span class="p">,</span> <span class="n">BertForMaskedLM</span>  
+
+<span class="c1"># Inference pipeline setup</span>
+<span class="c1"># Will download models when run for the first time</span>
+<span class="c1"># On Linux, models are stored in ~/.cache/huggingface/transformers</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;malay-huggingface/bert-base-bahasa-cased&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">BertForMaskedLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="p">,</span> <span class="n">do_lower_case</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fill_mask</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;fill-mask&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">)</span>
+
+<span class="c1"># Inferencing</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Cuaca terlalu panas untuk bermain [MASK] di padang bersama kawan-kawan.&quot;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">fill_mask</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="c1"># Output format is a List[Dict]:</span>
+<span class="c1"># [</span>
+<span class="c1">#   {</span>
+<span class="c1">#     &quot;sequence&quot;: &quot;Cuaca terlalu panas untuk bermain permainan di padang bersama kawan - kawan.&quot;,</span>
+<span class="c1">#     &quot;score&quot;: 0.24029025435447693,</span>
+<span class="c1">#     &quot;token&quot;: 5699,</span>
+<span class="c1">#     &quot;token_str&quot;: &quot;p e r m a i n a n&quot;</span>
+<span class="c1">#   },</span>
+<span class="c1">#   ...</span>
+<span class="c1"># ]</span>
+</code></pre></div>
+
+<p>Refer to <a href="https://huggingface.co/transformers/"><code>transformers</code> docs</a> and the hosted model repos linked above for more info.</p>
