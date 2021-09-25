@@ -18,7 +18,9 @@ iface_large = gr.Interface.load(
 )
 
 # Prerender until https://github.com/gradio-app/gradio/pull/277 is merged
-with open("bert-readme-rendered.html", "r") as f:
+# with open("bert-readme-rendered.html", "r") as f:
+#     long_description = f.read()
+with open("bert-readme.md", "r") as f:
     long_description = f.read()
 
 combo_iface = Parallel(
