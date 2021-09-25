@@ -6,8 +6,7 @@ Demos and code samples for BM NLP models from [malay-huggingface](https://huggin
 
 The BERT models have the `fill-mask` inference API ready to use, making it possible to host a light-weight demo without requiring significant compute.  Simple Gradio demo implemented in`bert-X-bahasa-cased.py`. 
 
-BERT models have their own readme at [bert-readme.md](bert-readme.md). Demo hosted at [https://bert-x-bahasa-cased.herokuapp.com/](https://bert-x-bahasa-cased.herokuapp.com/) (note: might take a while to load) until I get access to HuggingFace spaces.
-
+BERT models have their own readme at [bert-readme.md](bert-readme.md). Demo hosted at [https://huggingface.co/malay-huggingface/bert-base-bahasa-cased](https://huggingface.co/malay-huggingface/bert-base-bahasa-cased) (previously [https://bert-x-bahasa-cased.herokuapp.com/](https://bert-x-bahasa-cased.herokuapp.com/))
 <!--
 Open items moving ahead:
 + What other tasks available
