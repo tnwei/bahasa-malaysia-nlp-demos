@@ -1,6 +1,8 @@
 # bahasa-malaysia-nlp-demos
 
-Demos and code samples for BM NLP models from [malay-huggingface](https://huggingface.co/malay-huggingface), also hosted [on github](https://github.com/malaysia-ai/malay-huggingface).
+Demos and code samples for BM NLP models from [malay-huggingface](https://huggingface.co/malay-huggingface).
+
+Status of all available model repos and demos documented in [STATUS.md](STATUS.md), tracked as issues in the related [github repo](https://github.com/malaysia-ai/malay-huggingface). Completed demos are shown below.
 
 ##  BERT models
 
@@ -12,9 +14,9 @@ Open items moving ahead:
 + What other tasks available
 -->
 
-| Model name              | Use via `transformers` | Inference API         | Demo status | Link to hosted model
-| ----------------------- | ---------------------- | --------------------- | ----------- | ----
-| bert-tiny-bahasa-cased  | Available              | Available (fill-mask) | Available   | https://huggingface.co/malay-huggingface/bert-tiny-bahasa-cased
-| bert-base-bahasa-cased  | Available              | Available (fill-mask) | Available   | https://huggingface.co/malay-huggingface/bert-base-bahasa-cased     
-| bert-large-bahasa-cased | Available              | Available (fill-mask) | Available   | https://huggingface.co/malay-huggingface/bert-large-bahasa-cased
     
+| Model name              | Repo status | Inference API     | Demo status | Link to model repo
+| ----------------------- | --------- | ----------------- | ----------- | ----
+| bert-tiny-bahasa-cased  | Ready     | Ready (fill-mask) | Ready, [https://huggingface.co/spaces/malay-huggingface/bert-x-bahasa-cased](https://huggingface.co/spaces/malay-huggingface/bert-x-bahasa-cased)       | [https://huggingface.co/malay-huggingface/bert-tiny-bahasa-cased](https://huggingface.co/malay-huggingface/bert-tiny-bahasa-cased)
+| bert-base-bahasa-cased  | Ready     | Ready (fill-mask) | Ready, [https://huggingface.co/spaces/malay-huggingface/bert-x-bahasa-cased](https://huggingface.co/spaces/malay-huggingface/bert-x-bahasa-cased)       | [https://huggingface.co/malay-huggingface/bert-base-bahasa-cased](https://huggingface.co/malay-huggingface/bert-base-bahasa-cased)     
+| bert-large-bahasa-cased | Ready     | Ready (fill-mask) | Ready, [https://huggingface.co/spaces/malay-huggingface/bert-x-bahasa-cased](https://huggingface.co/spaces/malay-huggingface/bert-x-bahasa-cased)       | [https://huggingface.co/malay-huggingface/bert-large-bahasa-cased](https://huggingface.co/malay-huggingface/bert-large-bahasa-cased)
