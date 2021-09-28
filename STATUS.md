@@ -23,16 +23,16 @@ Model repos are at https://huggingface.co/malay-huggingface
 | Model name               | Repo status | Inference API                     | Demo status                      | Link to model repo
 | ------------------------ | --------- | --------------------------------- | -------------------------------- | ----
 | xlnet-tiny-bahasa-cased  | Ready | Require tagging to text-generation | Simple Gradio app, not published | https://huggingface.co/malay-huggingface/xlnet-tiny-bahasa-cased
-| xlnet-base-bahasa-cased  | Pending model upload | Require tagging to text-generation | N/A                              | https://huggingface.co/malay-huggingface/xlnet-base-bahasa-cased   
-| xlnet-large-bahasa-cased | Pending model upload | Require tagging to text-generation | N/A                              | https://huggingface.co/malay-huggingface/xlnet-large-bahasa-cased    
+| xlnet-base-bahasa-cased  | Ready | Require tagging to text-generation | N/A                              | https://huggingface.co/malay-huggingface/xlnet-base-bahasa-cased   
+| xlnet-large-bahasa-cased | Ready | Require tagging to text-generation | N/A                              | https://huggingface.co/malay-huggingface/xlnet-large-bahasa-cased    
 
 ## Albert models
 
 | Model name              | Repo status | Inference API     | Demo status | Link to model repo
 | ----------------------- | --------- | ----------------- | ----------- | ----
-| albert-tiny-bahasa-cased  | Pending model upload     | Require tagging to fill-mask | Not Ready       | https://huggingface.co/malay-huggingface/albert-tiny-bahasa-cased
-| albert-base-bahasa-cased  | Pending model upload     | Require tagging to fill-mask | Not Ready       | https://huggingface.co/malay-huggingface/albert-base-bahasa-cased 
-| albert-large-bahasa-cased | Pending model upload     | Require tagging to fill-mask | Not Ready       | https://huggingface.co/malay-huggingface/albert-large-bahasa-cased
+| albert-tiny-bahasa-cased  | Ready     | Ready (fill-mask) | In progress     | https://huggingface.co/malay-huggingface/albert-tiny-bahasa-cased
+| albert-base-bahasa-cased  | Ready     | Ready (fill-mask) | In progress     | https://huggingface.co/malay-huggingface/albert-base-bahasa-cased 
+| albert-large-bahasa-cased | Ready     | Ready (fill-mask) | In progress     | https://huggingface.co/malay-huggingface/albert-large-bahasa-cased
 
 ## Bigbird models
 
