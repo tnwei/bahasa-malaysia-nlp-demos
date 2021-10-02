@@ -30,9 +30,9 @@ Model repos are at https://huggingface.co/malay-huggingface
 
 | Model name              | Repo status | Inference API     | Demo status | Link to model repo
 | ----------------------- | --------- | ----------------- | ----------- | ----
-| albert-tiny-bahasa-cased  | Ready     | Ready (fill-mask) | In progress     | https://huggingface.co/malay-huggingface/albert-tiny-bahasa-cased
-| albert-base-bahasa-cased  | Ready     | Ready (fill-mask) | In progress     | https://huggingface.co/malay-huggingface/albert-base-bahasa-cased 
-| albert-large-bahasa-cased | Ready     | Ready (fill-mask) | In progress     | https://huggingface.co/malay-huggingface/albert-large-bahasa-cased
+| albert-tiny-bahasa-cased  | Ready     | Ready (fill-mask) | Ready, https://huggingface.co/spaces/malay-huggingface/albert-x-bahasa-cased    | https://huggingface.co/malay-huggingface/albert-tiny-bahasa-cased
+| albert-base-bahasa-cased  | Ready     | Ready (fill-mask) | Ready, https://huggingface.co/spaces/malay-huggingface/albert-x-bahasa-cased     | https://huggingface.co/malay-huggingface/albert-base-bahasa-cased 
+| albert-large-bahasa-cased | Ready     | Ready (fill-mask) | Ready, https://huggingface.co/spaces/malay-huggingface/albert-x-bahasa-cased     | https://huggingface.co/malay-huggingface/albert-large-bahasa-cased
 
 ## Bigbird models
 
