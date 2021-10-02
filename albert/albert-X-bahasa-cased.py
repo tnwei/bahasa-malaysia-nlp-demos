@@ -28,7 +28,7 @@ combo_iface = Parallel(
     iface_base,
     iface_large,
     inputs=["text"],
-    description="Type a sentence in BM, and ask BERT to guess a word masked with '[MASK]'",
+    description="Type a sentence in BM, and ask ALBERT to guess a word masked with '[MASK]'",
     outputs=[gr.outputs.Label(num_top_classes=3)] * 3,  # too crowded!
     title="Demo for malay-huggingface/albert-X-bahasa-cased",
     article=long_description,
